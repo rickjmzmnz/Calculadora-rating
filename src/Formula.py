@@ -17,7 +17,7 @@ def puntosEsperados(ganadas,totales,ratingJ,ratingP):
     return puntos
 
 def formulaRating(ratingOriginal,constante,resta):
-    ratingNuevo = ratingOriginal + (constante * resta)
+    ratingNuevo = ((int)(ratingOriginal + (constante * resta)))
     return ratingNuevo
 
 def calculaDesempeno(ratingP,ganadas,totales):
