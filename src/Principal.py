@@ -6,12 +6,21 @@ import types
 
 class Interfaz(Frame):
 
+    """
+    Constructor de la clase
+    Crea la ventana principal
+    Las cajas de texto, etiquetas y botones
+    """
     def __init__(self,parent):
         Frame.__init__(self,parent)
         self.pack(fill=BOTH, expand=True)
         self.creaContenido()
         self.oponentes()
 
+    """
+    Funcion para crear las cajas de texto para introducir los datos necesarios para calcular el rating
+    Las etiques que indican que valores introducir y los botones
+    """
     def creaContenido(self):
         w = Label(self, text="Calculemos tu rating:",font=10)
         w.place(x=170,y=10)
@@ -81,6 +90,10 @@ class Interfaz(Frame):
         w = Label(self, text="------------------------------------------------------------------------------------------------------------------------------")
         w.place(x=0,y=310)
 
+    """
+    Funcion para construir las cajas de texto para introducir el rating de los oponentes
+    Con el fin de hacer el rating promedio
+    """
     def oponentes(self):
         
         """
@@ -218,6 +231,10 @@ class Interfaz(Frame):
         button = Button(self, text="Promedio", command= lambda: self.calculaPromedio(j1,j2,j3,j4,j5,j6,j7,j8,j9,j10,j11,j12,j13,j14,j15,j16,j17,j18,j19,j20,j21))
         button.place(x=400,y=452)
 
+    """
+    Calcula el promedio de los oponentes 
+    Solo calcula los valores distintos de cero 
+    """
     def calculaPromedio(self,j1,j2,j3,j4,j5,j6,j7,j8,j9,j10,j11,j12,j13,j14,j15,j16,j17,j18,j19,j20,j21):
         promedio = 0
         sumaPromedio = 0
@@ -372,26 +389,61 @@ class Interfaz(Frame):
         ratingP = sumaPromedio/promedio
         self.prom.delete(0,END)
         self.prom.insert(0,ratingP)
-        
+
+    """
+    Ventana emergente 
+    Aparece si algun valor de las cajas de texto es igual a cero
+    """
+    def valoresCero(self):
+        top = Toplevel()
+
+        w = Label(top, text="No puedes dejar valores en cero", font=15)
+        w.pack()
+
+    """
+    Ventana emergente
+    Aparece si el numero de partidas ganadas es mayor al total de partidas
+    """
+    def noEsPosible(self):
+        top = Toplevel()
+
+        w = Label(top, text="No es posible que hayas ganado mas de lo que jugaste", font=15)
+        w.pack()
+
+    """
+    A partir de los valores dados en las cajas de texto
+    Calcula el rating nuevo, la diferencia y el performance
+    """
     def calculaRating(self,ganados,totales,ratingJ,ratingP,constante):
         ganados = ganados.get()
         totales = totales.get()
         ratingJ = ratingJ.get()
         ratingP = ratingP.get()
         k = constante.get()
-        we = puntosEsperados(ganados,totales,ratingJ,ratingP)
 
-        n = formulaRating(ratingJ,k,we)
-        nuevo = str(n)
-        self.nuevo.config(text=nuevo)
+        if (ganados == 0 or totales == 0 or ratingJ == 0 or ratingP == 0 or k == 0):
 
-        d = ratingJ - ratingP
-        dife = str(d)
-        self.dife.config(text=dife)
+            self.valoresCero()
+
+        elif (ganados > totales):
+
+            self.noEsPosible()
+
+        else:
+            
+            we = puntosEsperados(ganados,totales,ratingJ,ratingP)
+
+            n = formulaRating(ratingJ,k,we)
+            nuevo = str(n)
+            self.nuevo.config(text=nuevo)
+
+            d = ratingJ - ratingP
+            dife = str(d)
+            self.dife.config(text=dife)
         
-        p = calculaDesempeno(ratingP,ganados,totales)
-        perfo = str(p)
-        self.perfo.config(text=perfo)
+            p = calculaDesempeno(ratingP,ganados,totales)
+            perfo = str(p)
+            self.perfo.config(text=perfo)
     
     def salir(self):
         os._exit(0)

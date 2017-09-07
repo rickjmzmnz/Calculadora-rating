@@ -4,7 +4,7 @@ Dada la diferencia entre el rating del jugador y el rating promedio de los rival
 Se da un valor de la tabla de diferencias de rating
 """
 def tablaRating(n):
-    if (n <= 677 and n > 589):
+    if (n <= 677 and n > 589 or n > 677):
         return 0.99
     elif (n <= 589 and n > 538):
         return 0.98
@@ -200,5 +200,5 @@ def tablaRating(n):
         return 0.03
     elif (n <= (-589) and n > (-676)):
         return 0.02
-    elif (n == (-677)):
+    elif (n <= (-677)):
         return 0.01
