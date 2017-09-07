@@ -25,3 +25,14 @@ El programa también determina el desempeño de un jugador como:
 D = (Rp + 400 * (triunfos - derrotas))/total de partidas
 
 Este desempeño es un estimado, sí el jugador tiene esta fuerza entonces tendía que tener el valor de triunfos del total de partidas jugadas para conservar su rating
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Para poder ejecutar el programa se debe de instalar tkinter.
+El programa fue probado en Ubuntu 16.04
+
+Para instalar tkinter basta con el comando:
+sudo apt-get install python-tk
+
+Para ejecutar el programa:
+python Principal.py
