@@ -28,20 +28,20 @@ class Interfaz(Frame):
         ganados = IntVar()
         w = Label(self, text="Numero de partidas ganadas:")
         w.place(x=0,y=60)
-        gan = Entry(self, textvariable=ganados)
-        gan.place(x=230,y=60)
+        self.gan = Entry(self, textvariable=ganados)
+        self.gan.place(x=230,y=60)
 
         totales = IntVar()
         w = Label(self, text="Numero de partidas jugadas:")
         w.place(x=0,y=90)
-        tot = Entry(self, textvariable=totales)
-        tot.place(x=230,y=90)
+        self.tot = Entry(self, textvariable=totales)
+        self.tot.place(x=230,y=90)
 
         ratingJ = IntVar()
         w = Label(self, text="Tu rating actual:")
         w.place(x=0,y=120)
-        jug = Entry(self, textvariable=ratingJ)
-        jug.place(x=230,y=120)
+        self.jug = Entry(self, textvariable=ratingJ)
+        self.jug.place(x=230,y=120)
 
         ratingP = IntVar()
         w = Label(self, text="El rating promedio de tus contrincates")
@@ -66,8 +66,11 @@ class Interfaz(Frame):
         button = Button(self, text="Calcular rating", command= lambda: self.calculaRating(ganados,totales,ratingJ,ratingP,k))
         button.place(x=390,y=60)
 
+        limpiar = Button(self, text="Limpiar", command = self.limpiarDatos)
+        limpiar.place(x=390, y=100)
+
         salir = Button(self,text="Salir", command= self.salir)
-        salir.place(x=390,y=100)
+        salir.place(x=390,y=140)
 
         w = Label(self, text="------------------------------------------------------------------------------------------------------------------------------")
         w.place(x=0,y=210)
@@ -105,131 +108,134 @@ class Interfaz(Frame):
         j1 = IntVar()
         w = Label(self, text="1)")
         w.place(x=0,y=370)
-        je1 = Entry(self, textvariable=j1,width=5)
-        je1.place(x=25,y=370)
+        self.je1 = Entry(self, textvariable=j1,width=5)
+        self.je1.place(x=25,y=370)
 
         j2 = IntVar()
         w = Label(self, text="2)")
         w.place(x=0,y=400)
-        je2 = Entry(self, textvariable=j2,width=5)
-        je2.place(x=25,y=400)
+        self.je2 = Entry(self, textvariable=j2,width=5)
+        self.je2.place(x=25,y=400)
 
         j3 = IntVar()
         w = Label(self, text="3)")
         w.place(x=0,y=430)
-        je3 = Entry(self, textvariable=j3,width=5)
-        je3.place(x=25,y=430)
+        self.je3 = Entry(self, textvariable=j3,width=5)
+        self.je3.place(x=25,y=430)
 
         j4 = IntVar()
         w = Label(self, text="4)")
         w.place(x=0,y=460)
-        je4 = Entry(self, textvariable=j4,width=5)
-        je4.place(x=25,y=460)
+        self.je4 = Entry(self, textvariable=j4,width=5)
+        self.je4.place(x=25,y=460)
 
         j5 = IntVar()
         w = Label(self, text="5)")
         w.place(x=80,y=370)
-        je5 = Entry(self, textvariable=j5,width=5)
-        je5.place(x=105,y=370)
+        self.je5 = Entry(self, textvariable=j5,width=5)
+        self.je5.place(x=105,y=370)
 
         j6 = IntVar()
         w = Label(self, text="6)")
         w.place(x=80,y=400)
-        je6 = Entry(self, textvariable=j6,width=5)
-        je6.place(x=105,y=400)
+        self.je6 = Entry(self, textvariable=j6,width=5)
+        self.je6.place(x=105,y=400)
 
         j7 = IntVar()
         w = Label(self, text="7)")
         w.place(x=80,y=430)
-        je7 = Entry(self, textvariable=j7,width=5)
-        je7.place(x=105,y=430)
+        self.je7 = Entry(self, textvariable=j7,width=5)
+        self.je7.place(x=105,y=430)
 
         j8 = IntVar()
         w = Label(self, text="8)")
         w.place(x=80,y=460)
-        je8 = Entry(self, textvariable=j8,width=5)
-        je8.place(x=105,y=460)
+        self.je8 = Entry(self, textvariable=j8,width=5)
+        self.je8.place(x=105,y=460)
 
         j9 = IntVar()
         w = Label(self, text="9)")
         w.place(x=160,y=370)
-        je9 = Entry(self, textvariable=j9,width=5)
-        je9.place(x=185,y=370)
+        self.je9 = Entry(self, textvariable=j9,width=5)
+        self.je9.place(x=185,y=370)
 
         j10 = IntVar()
         w = Label(self, text="10)")
         w.place(x=160,y=400)
-        je10 = Entry(self, textvariable=j10,width=5)
-        je10.place(x=185,y=400)
+        self.je10 = Entry(self, textvariable=j10,width=5)
+        self.je10.place(x=185,y=400)
 
         j11 = IntVar()
         w = Label(self, text="11)")
         w.place(x=160,y=430)
-        je11 = Entry(self, textvariable=j11,width=5)
-        je11.place(x=185,y=430)
+        self.je11 = Entry(self, textvariable=j11,width=5)
+        self.je11.place(x=185,y=430)
 
         j12 = IntVar()
         w = Label(self, text="12)")
         w.place(x=160,y=460)
-        je12 = Entry(self, textvariable=j12,width=5)
-        je12.place(x=185,y=460)
+        self.je12 = Entry(self, textvariable=j12,width=5)
+        self.je12.place(x=185,y=460)
 
         j13 = IntVar()
         w = Label(self, text="13)")
         w.place(x=240,y=370)
-        je13 = Entry(self, textvariable=j13,width=5)
-        je13.place(x=265,y=370)
+        self.je13 = Entry(self, textvariable=j13,width=5)
+        self.je13.place(x=265,y=370)
 
         j14 = IntVar()
         w = Label(self, text="14)")
         w.place(x=240,y=400)
-        je14 = Entry(self, textvariable=j14,width=5)
-        je14.place(x=265,y=400)
+        self.je14 = Entry(self, textvariable=j14,width=5)
+        self.je14.place(x=265,y=400)
 
         j15 = IntVar()
         w = Label(self, text="15)")
         w.place(x=240,y=430)
-        je15 = Entry(self, textvariable=j15,width=5)
-        je15.place(x=265,y=430)
+        self.je15 = Entry(self, textvariable=j15,width=5)
+        self.je15.place(x=265,y=430)
 
         j16 = IntVar()
         w = Label(self, text="16)")
         w.place(x=240,y=460)
-        je16 = Entry(self, textvariable=j16,width=5)
-        je16.place(x=265,y=460)
+        self.je16 = Entry(self, textvariable=j16,width=5)
+        self.je16.place(x=265,y=460)
 
         j17 = IntVar()
         w = Label(self, text="17)")
         w.place(x=320,y=370)
-        je17 = Entry(self, textvariable=j17,width=5)
-        je17.place(x=345,y=370)
+        self.je17 = Entry(self, textvariable=j17,width=5)
+        self.je17.place(x=345,y=370)
 
         j18 = IntVar()
         w = Label(self, text="18)")
         w.place(x=320,y=400)
-        je18 = Entry(self, textvariable=j18,width=5)
-        je18.place(x=345,y=400)
+        self.je18 = Entry(self, textvariable=j18,width=5)
+        self.je18.place(x=345,y=400)
 
         j19 = IntVar()
         w = Label(self, text="19)")
         w.place(x=320,y=430)
-        je19 = Entry(self, textvariable=j19,width=5)
-        je19.place(x=345,y=430)
+        self.je19 = Entry(self, textvariable=j19,width=5)
+        self.je19.place(x=345,y=430)
 
         j20 = IntVar()
         w = Label(self, text="20)")
         w.place(x=320,y=460)
-        je20 = Entry(self, textvariable=j20,width=5)
-        je20.place(x=345,y=460)
+        self.je20 = Entry(self, textvariable=j20,width=5)
+        self.je20.place(x=345,y=460)
 
         j21 = IntVar()
         w = Label(self, text="21)")
         w.place(x=400,y=370)
-        je21 = Entry(self, textvariable=j21,width=5)
-        je21.place(x=425,y=370)
+        self.je21 = Entry(self, textvariable=j21,width=5)
+        self.je21.place(x=425,y=370)
 
         button = Button(self, text="Promedio", command= lambda: self.calculaPromedio(j1,j2,j3,j4,j5,j6,j7,j8,j9,j10,j11,j12,j13,j14,j15,j16,j17,j18,j19,j20,j21))
-        button.place(x=400,y=452)
+        button.place(x=400,y=412)
+
+        limpiar = Button(self, text="Limpiar", command = self.limpiarRatings)
+        limpiar.place(x=400,y=452)
 
     """
     Calcula el promedio de los oponentes 
@@ -411,6 +417,73 @@ class Interfaz(Frame):
         w.pack()
 
     """
+    Ventana emergente 
+    Aparece si el rating es menor a 1000 o mayor a 3000
+    """
+    def ratingInvalido(self):
+        top = Toplevel()
+
+        w = Label(top, text="Ese rating es invalido", font=15)
+        w.pack()
+
+    """
+    Funcion para poner en cero todos los valores de los datos para calcular el rating nuevo
+    """
+    def limpiarDatos(self):
+        self.gan.delete(0,END)
+        self.tot.delete(0,END)
+        self.jug.delete(0,END)
+        self.prom.delete(0,END)
+
+    """
+    Funcion para poner todos los valores en cero de las cajas de texto de los ratings de los oponentes
+    """
+    def limpiarRatings(self):
+        self.je1.delete(0,END)
+        self.je2.delete(0,END)
+        self.je3.delete(0,END)
+        self.je4.delete(0,END)
+        self.je5.delete(0,END)
+        self.je6.delete(0,END)
+        self.je7.delete(0,END)
+        self.je8.delete(0,END)
+        self.je9.delete(0,END)
+        self.je10.delete(0,END)
+        self.je11.delete(0,END)
+        self.je12.delete(0,END)
+        self.je13.delete(0,END)
+        self.je14.delete(0,END)
+        self.je15.delete(0,END)
+        self.je16.delete(0,END)
+        self.je17.delete(0,END)
+        self.je18.delete(0,END)
+        self.je19.delete(0,END)
+        self.je20.delete(0,END)
+        self.je21.delete(0,END)
+
+        self.je1.insert(0,0)
+        self.je2.insert(0,0)
+        self.je3.insert(0,0)
+        self.je4.insert(0,0)
+        self.je5.insert(0,0)
+        self.je6.insert(0,0)
+        self.je7.insert(0,0)
+        self.je8.insert(0,0)
+        self.je9.insert(0,0)
+        self.je10.insert(0,0)
+        self.je11.insert(0,0)
+        self.je12.insert(0,0)
+        self.je13.insert(0,0)
+        self.je14.insert(0,0)
+        self.je15.insert(0,0)
+        self.je16.insert(0,0)
+        self.je17.insert(0,0)
+        self.je18.insert(0,0)
+        self.je19.insert(0,0)
+        self.je20.insert(0,0)
+        self.je21.insert(0,0)
+        
+    """
     A partir de los valores dados en las cajas de texto
     Calcula el rating nuevo, la diferencia y el performance
     """
@@ -428,6 +501,10 @@ class Interfaz(Frame):
         elif (ganados > totales):
 
             self.noEsPosible()
+
+        elif (ratingJ < 1000 or ratingJ > 3000 or ratingP < 1000 or ratingP > 3000):
+
+            self.ratingInvalido()
 
         else:
             
